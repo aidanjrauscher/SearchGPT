@@ -1,0 +1,17 @@
+{
+  "name": "searchgpt",
+  "version": "1.0.0",
+  "description": "Augmenting ChatGPT with internet access.",
+  "type": "module",
+  "main": "chat.js",
+  "scripts": {
+    "chat": "node chat.js"
+  },
+  "author": "aidanjrauscher",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1",
+    "prompt-sync": "^4.2.0"
+  }
+}
