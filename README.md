@@ -7,4 +7,4 @@ SearchGPT augments GPT with access to the internet, corutesy of the Bing Web Sea
 - SearchGPT may also fall-back on outdated data from GPT. When asked a stock price, it might provide a quote from before GPT's September 2021 cut-off. 
 
 ### Credit
-- Parsing site content using JSDOM borrowed from [mckaywrigley](https://github.com/mckaywrigley)
+- Parsing site content using JSDOM borrowed from Chatbot-UI by [mckaywrigley](https://github.com/mckaywrigley)
