@@ -10,7 +10,10 @@
   "author": "aidanjrauscher",
   "license": "ISC",
   "dependencies": {
+    "@mozilla/readability": "^0.4.4",
     "dotenv": "^16.0.3",
+    "jsdom": "^21.1.1",
+    "node-fetch": "^3.3.1",
     "openai": "^3.2.1",
     "prompt-sync": "^4.2.0"
   }

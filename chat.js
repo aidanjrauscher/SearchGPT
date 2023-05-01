@@ -2,7 +2,8 @@ import prompt from "prompt-sync"
 import { Configuration, OpenAIApi } from "openai"
 import * as dotenv from 'dotenv'
 
-import search from "./search"
+import search from "./lib/search.js"
+import generateResponse from "./lib/generate.js"
 
 
 (async()=>{
@@ -16,14 +17,16 @@ import search from "./search"
     let userPrompt = ""
 
     while (true){
-        userPrompt = p("Enter your prompt for ChatGPT:")
+        console.log("\x1b[36mEnter your prompt for ChatGPT:\n")
+        userPrompt = p("\x1b[37m")
         if(userPrompt == null){ break }
 
-        const searchResult = search(userPrompt)
-        // const completion = await openai.createChatCompletion({
-        //     model: "gpt-3.5-turbo",
-        //     messages: [{role: "user", content: userPrompt}],
-        // })
-        // console.log(completion.data.choices[0].message.content)
+        const searchResult = await search(userPrompt)
+
+        const generationResult = await generateResponse(userPrompt, searchResult, openai)
+
+        console.log("\n\x1b[32mAnswer: \n")
+        console.log("\x1b[37m"+generationResult + "\n\n")
+        
     }
 })()
