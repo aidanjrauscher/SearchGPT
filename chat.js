@@ -6,27 +6,26 @@ import search from "./lib/search.js"
 import generateResponse from "./lib/generate.js"
 
 
-(async()=>{
-    dotenv.config()
-    const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
-    });
-    const openai = new OpenAIApi(configuration);
 
-    const p = prompt()
-    let userPrompt = ""
+dotenv.config()
+const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
-    while (true){
-        console.log("\x1b[36mEnter your prompt for ChatGPT:\n")
-        userPrompt = p("\x1b[37m")
-        if(userPrompt == null){ break }
+const p = prompt()
+let userPrompt = ""
 
-        const searchResult = await search(userPrompt)
+while (true){
+    console.log("\x1b[36mEnter your prompt for ChatGPT:\n")
+    userPrompt = p("\x1b[37m")
+    if(userPrompt == null){ break }
 
-        const generationResult = await generateResponse(userPrompt, searchResult, openai)
+    const searchResult = await search(userPrompt)
 
-        console.log("\n\x1b[32mAnswer: \n")
-        console.log("\x1b[37m"+generationResult + "\n\n")
-        
-    }
-})()
+    const generationResult = await generateResponse(userPrompt, searchResult, openai)
+
+    console.log("\n\x1b[32mAnswer: \n")
+    console.log("\x1b[37m"+generationResult + "\n\n")
+    
+}
